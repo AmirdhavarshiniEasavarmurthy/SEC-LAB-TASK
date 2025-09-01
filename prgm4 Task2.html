@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Email Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 3rem;
+      background-color: #f0f2f5;
+    }
+    h1 {
+      color: #333;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 0.6rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    #output {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .valid {
+      color: green;
+    }
+    .invalid {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Validate Email Address</h1>
+
+<input type="text" id="emailInput" placeholder="Enter your email" />
+<br>
+<button onclick="validateEmail()">Validate</button>
+
+<div id="output"></div>
+
+<script>
+  function validateEmail() {
+    const email = document.getElementById('emailInput').value.trim();
+    const output = document.getElementById('output');
+
+    
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (email === "") {
+      output.textContent = "Email cannot be empty.";
+      output.className = "invalid";
+    } else if (!emailPattern.test(email)) {
+      output.textContent = "Invalid email format.";
+      output.className = "invalid";
+    } else {
+      output.textContent = `${email} is valid.`;
+      output.className = "valid";
+    }
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Validate Name Field</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 3rem;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #333;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 0.6rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.6rem 1.2rem;
+      font-size: 1rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #output {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .valid {
+      color: green;
+    }
+    .invalid {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Validate Name Field</h1>
+
+<input type="text" id="nameInput" placeholder="Enter your full name" />
+<br>
+<button onclick="validateName()">Validate</button>
+
+<div id="output"></div>
+
+<script>
+  function validateName() {
+    const name = document.getElementById('nameInput').value.trim();
+    const output = document.getElementById('output');
+    
+
+    const namePattern = /^[A-Za-z\s]+$/;
+
+    if (name === "") {
+      output.textContent = "Name cannot be empty.";
+      output.className = "invalid";
+    } else if (!namePattern.test(name)) {
+      output.textContent = "Invalid: Name can only contain letters and spaces.";
+      output.className = "invalid";
+    } else {
+      output.textContent = `${name} is valid.`;
+      output.className = "valid";
+    }
+  }
+</script>
+
+</body>
+</html>
