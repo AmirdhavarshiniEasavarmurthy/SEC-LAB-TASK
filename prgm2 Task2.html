@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Number Comparison Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 3rem;
+      background-color: #f0f4f8;
+    }
+    h1 {
+      color: #333;
+    }
+    input[type="number"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 100px;
+      margin-top: 1rem;
+    }
+    button {
+      font-size: 1rem;
+      padding: 0.5rem 1rem;
+      margin-left: 0.5rem;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #output {
+      margin-top: 1.5rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Guess the Number</h1>
+
+<p>Enter a number between 1 and 100:</p>
+<input type="number" id="userInput" min="1" max="100" />
+<button onclick="compareNumber()">Check</button>
+
+<div id="output"></div>
+
+<script>
+  const secretNumber = 50; 
+
+  function compareNumber() {
+    const userValue = Number(document.getElementById('userInput').value);
+    const output = document.getElementById('output');
+
+    if (isNaN(userValue)) {
+      output.textContent = 'Please enter a valid number.';
+      return;
+    }
+
+    if (userValue < secretNumber) {
+      output.textContent = 'Too Low';
+    } else if (userValue > secretNumber) {
+      output.textContent = 'Too High';
+    } else {
+      output.textContent = 'Correct!';
+    }
+  }
+</script>
+
+</body>
+</html>
