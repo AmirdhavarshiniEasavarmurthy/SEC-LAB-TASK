@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Operators Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #eef6ff;
+            text-align: center;
+            margin-top: 40px;
+        }
+        h2 {
+            color: #003366;
+        }
+        pre {
+            text-align: left;
+            display: inline-block;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<h2>JavaScript Operators Example</h2>
+<pre id="output"></pre>
+
+<script>
+    let output = "";
+    let a = 10, b = 3;
+    output += "Arithmetic Operators:\n";
+    output += `a + b = ${a + b}\n`;
+    output += `a - b = ${a - b}\n`;
+    output += `a * b = ${a * b}\n`;
+    output += `a / b = ${(a / b).toFixed(2)}\n`;
+    output += `a % b = ${a % b}\n\n`;
+
+    
+    let x = 5;
+    output += "Assignment Operators:\n";
+    x += 3; 
+    output += `x after x += 3: ${x}\n`;
+    x -= 2; 
+    output += `x after x -= 2: ${x}\n\n`;
+
+    
+    let y = 10, z = "10";
+    output += "Relational Operators:\n";
+    output += `y == z: ${y == z}\n`;   
+    output += `y === z: ${y === z}\n`; 
+    output += `y != z: ${y != z}\n`;
+    output += `y !== z: ${y !== z}\n`;
+    output += `y > 5: ${y > 5}\n`;
+    output += `y <= 10: ${y <= 10}\n\n`;
+
+    let p = true, q = false;
+    output += "Logical Operators:\n";
+    output += `p && q = ${p && q}\n`;
+    output += `p || q = ${p || q}\n`;
+    output += `!p = ${!p}\n\n`;
+
+    let age = 20;
+    let status = (age >= 18) ? "Adult" : "Minor";
+    output += "Conditional (Ternary) Operator:\n";
+    output += `Age: ${age} → ${status}\n\n`;
+
+    let m = 5, n = 3; 
+    output += "Bitwise Operators:\n";
+    output += `m & n = ${m & n}\n`;   
+    output += `m | n = ${m | n}\n`;   
+    output += `m ^ n = ${m ^ n}\n`;   
+    output += `~m = ${~m}\n`;         
+    output += `m << 1 = ${m << 1}\n`; 
+    output += `m >> 1 = ${m >> 1}\n\n`; 
+
+    let num = 10;
+    output += "Increment and Decrement Operators:\n";
+    output += `num++ = ${num++} (after increment: ${num})\n`;
+    output += `--num = ${--num}\n`;
+    document.getElementById("output").textContent = output;
+
+
+    console.log(output);
+</script>
+
+</body>
+</html>

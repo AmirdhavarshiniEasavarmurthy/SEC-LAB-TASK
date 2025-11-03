@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 1: Defining and Calling Functions</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #f3f8ff;
+      color: #222;
+      margin: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0056b3;
+    }
+
+    .section {
+      background: white;
+      padding: 20px;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+    }
+
+    button {
+      background-color: #0056b3;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #003f8a;
+    }
+
+    pre {
+      background-color: #eef3f9;
+      padding: 10px;
+      border-radius: 8px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h1>Task 1: Defining and Calling Functions</h1>
+
+  <!-- Fixed parameters function -->
+  <div class="section">
+    <h2>1️⃣ Function with Fixed Parameters</h2>
+    <p>This function adds two numbers.</p>
+    <button onclick="runFixedFunction()">Run Function</button>
+    <pre id="fixedOutput"></pre>
+  </div>
+
+  <!-- Function with arbitrary arguments -->
+  <div class="section">
+    <h2>2️⃣ Function with Arbitrary Arguments</h2>
+    <p>This function calculates the sum of all numbers entered.</p>
+    <input type="text" id="numbersInput" placeholder="Enter numbers separated by commas">
+    <button onclick="runArbitraryFunction()">Calculate Sum</button>
+    <pre id="arbitraryOutput"></pre>
+  </div>
+
+  <!-- Function calling and testing -->
+  <div class="section">
+    <h2>3️⃣ Function Calls and Console Output</h2>
+    <p>Check console (F12 → Console tab) to see function results too!</p>
+    <button onclick="runConsoleTests()">Show Console Outputs</button>
+    <pre id="consoleOutput"></pre>
+  </div>
+
+  <script>
+
+    function addNumbers(a, b) {
+      return a + b;
+    }
+
+    function runFixedFunction() {
+      let result = addNumbers(10, 20);
+      document.getElementById("fixedOutput").textContent = 
+        "Result of addNumbers(10, 20) = " + result;
+    }
+
+    function sumAll(...numbers) {
+      let sum = 0;
+      for (let num of numbers) {
+        sum += num;
+      }
+      return sum;
+    }
+
+    function runArbitraryFunction() {
+      let input = document.getElementById("numbersInput").value;
+      let nums = input.split(",").map(Number);
+      let result = sumAll(...nums);
+      document.getElementById("arbitraryOutput").textContent =
+        "Sum of entered numbers = " + result;
+    }
+
+    function greet(name) {
+      return "Hello, " + name + "!";
+    }
+
+    function multiply(a, b, c = 1) {
+      return a * b * c;
+    }
+
+    function runConsoleTests() {
+      let output = "";
+      output += greet("Amirdhavarshini") + "\n";
+      output += "multiply(2, 3) = " + multiply(2, 3) + "\n";
+      output += "multiply(2, 3, 4) = " + multiply(2, 3, 4) + "\n";
+      document.getElementById("consoleOutput").textContent = output;
+
+      console.log("=== Function Console Outputs ===");
+      console.log(greet("Amirdhavarshini"));
+      console.log("addNumbers(5, 7) =", addNumbers(5, 7));
+      console.log("sumAll(1, 2, 3, 4, 5) =", sumAll(1, 2, 3, 4, 5));
+      console.log("multiply(2, 3, 4) =", multiply(2, 3, 4));
+    }
+  </script>
+</body>
+</html>
